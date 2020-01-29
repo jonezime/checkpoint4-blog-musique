@@ -1,0 +1,106 @@
+a,
+a:visited {
+    color: black;
+}
+
+/*HEADER
+*/
+
+.header {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    height: 70px;
+    line-height: 70px;
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    top: 0;
+    z-index: 999;
+}
+
+.header-menu {
+    float: right;
+    margin-right: 30px;
+}
+
+.header-menu a {
+    margin-right: 15px;
+    font-size: 1.2rem;
+}
+
+.header-menu a:hover {
+    color: orange;
+}
+
+.button-header {
+    margin-top: 20px;
+    opacity: 0.75;
+    border-radius: 35px;
+}
+
+/*BANNER
+*/
+
+.banner {
+    margin-top: -30px;
+}
+
+.banner-image {
+    position: relative;
+    height: 350px;
+    width: 100%;
+    opacity: 0.65;
+}
+
+.banner-content {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 10%;
+}
+
+/*LOGIN
+*/
+
+.container {
+    width: 25%;
+}
+
+.input {
+    background-color: #dbd6a4;
+}
+
+.connection {
+    color: white;
+    background-color: orange;
+}
+
+.registration {
+    color: white;
+    background-color: darkgreen;
+}
+
+.icon.is-small.is-left {
+    color: orange;
+}
+
+/*FOOTER
+*/
+
+.footer-informations {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.footer-informations ul {
+    padding: 0;
+}
+
+.footer-informations ul li {
+    display: inline-block;
+    list-style-type: none;
+}
+
+.svg-inline--fa {
+    font-size: 25px;
+}

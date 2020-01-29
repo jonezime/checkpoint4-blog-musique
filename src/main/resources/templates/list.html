@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>O&Zim - Ajout</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" />
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <link rel="stylesheet" th:href="@{/css/list.css}" />
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+<body>
+<div class="block">
+    <header class="header">
+        <nav class="header-menu">
+            <a th:href="@{/}" class="button & button-header">Accueil</a>
+            <a th:href="@{/registration}" class="button & button-header">Inscription</a>
+            <a th:href="@{/add}" class="button & button-header">Ajouter</a>
+            <a th:href="@{/list}" class="button & button-header">Ma liste</a>
+        </nav>
+    </header>
+</div>
+<div class="block">
+    <div class="banner">
+        <img th:src="@{/img/banner2.png}" alt="bannière site" class="banner-image" />
+        <div class="banner-content">
+            <h1 class="title is-1">O&Zim</h1>
+            <h2 class="subtitle">Liste des groupes</h2>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="columns is-multiline">
+        <div class="card">
+            <div class="card-image">
+                <figure class="image is-4by3">
+                    <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" />
+                </figure>
+            </div>
+            <div class="card-content">
+                <div class="media">
+                    <div class="media-content">
+                        <p class="title is-4">Nom de l'artiste</p>
+                        <p class="subtitle is-6">Style musical</p>
+                        <p class="button">Supprimer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-image">
+                <figure class="image is-4by3">
+                    <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" />
+                </figure>
+            </div>
+            <div class="card-content">
+                <div class="media">
+                    <div class="media-content">
+                        <p class="title is-4">Nom de l'artiste</p>
+                        <p class="subtitle is-6">Style musical</p>
+                        <p class="button">Supprimer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="block">
+    <footer class="footer">
+        <div class="footer-informations">
+            <p>Wild Code School</p>
+            <p>Checkpoint 4</p>
+            <ul>
+                <li>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fab fa-spotify"></i></a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

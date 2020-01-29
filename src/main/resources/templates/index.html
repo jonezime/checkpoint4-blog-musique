@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>O&Zim - Accueil</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" />
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+<body>
+<div class="block">
+    <header class="header">
+        <nav class="header-menu">
+            <a th:href="@{/}" class="button & button-header">Accueil</a>
+            <a th:href="@{/registration}" class="button & button-header">Inscription</a>
+            <a th:href="@{/add}" class="button & button-header">Ajouter</a>
+            <a th:href="@{/list}" class="button & button-header">Ma liste</a>
+        </nav>
+    </header>
+</div>
+<div class="block">
+    <div class="banner">
+        <img th:src="@{/img/banner2.png}" alt="bannière site" class="banner-image" />
+        <div class="banner-content">
+            <h1 class="title is-1">O&Zim</h1>
+            <h2 class="subtitle">Répertoriez vos groupes préférés</h2>
+        </div>
+    </div>
+</div>
+<form class="container" th:action="@{/sign}" method="post">
+    <div class="field">
+        <p class="control has-icons-left">
+            <input class="input" type="email" name="email" placeholder="Email" />
+            <span class="icon is-small is-left">
+                        <i class="fas fa-envelope"></i>
+                    </span>
+        </p>
+    </div>
+    <div class="field">
+        <p class="control has-icons-left">
+            <input class="input" type="password" name="password" placeholder="Mot de passe" />
+            <span class="icon is-small is-left">
+                        <i class="fas fa-lock"></i>
+                    </span>
+        </p>
+    </div>
+    <div class="field">
+        <p class="control">
+            <input type="submit" class="button & connection" value="Connexion">
+            <button th:href="@{/registration.html}" class="button & registration">
+                Inscription
+            </button>
+        </p>
+    </div>
+</form>
+<div class="block">
+    <footer class="footer">
+        <div class="footer-informations">
+            <p>Wild Code School</p>
+            <p>Checkpoint 4</p>
+            <ul>
+                <li>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fab fa-spotify"></i></a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
