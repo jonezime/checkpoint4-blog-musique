@@ -14,9 +14,8 @@
 <div class="block">
     <header class="header">
         <nav class="header-menu">
-            <a th:href="@{/}" class="button & button-header">Accueil</a>
-            <a th:href="@{/registration}" class="button & button-header">Inscription</a>
-            <a th:href="@{/add}" class="button & button-header">Ajouter</a>
+            <a th:href="@{/disconnect}" class="button is-danger & button-header">Déconnexion</a>
+            <a th:href="@{/addBand}" class="button & button-header">Ajouter</a>
             <a th:href="@{/list}" class="button & button-header">Ma liste</a>
         </nav>
     </header>
@@ -30,10 +29,10 @@
         </div>
     </div>
 </div>
-<div class="container">
+<form class="container" method="post" th:action="@{/addBand}">
     <div class="field">
         <p class="control has-icons-left">
-            <input class="input" type="text" placeholder="Nom de l'artiste" />
+            <input class="input" type="text" name="name" placeholder="Nom de l'artiste" required/>
             <span class="icon is-small is-left">
                         <i class="fas fa-compact-disc"></i>
                     </span>
@@ -41,33 +40,28 @@
     </div>
     <div class="field">
         <p class="control has-icons-left">
-            <input class="input" type="email" placeholder="Style musical" />
+            <input class="input" type="text" name="genre" placeholder="Style musical" required/>
             <span class="icon is-small is-left">
                         <i class="fas fa-drum"></i>
                     </span>
         </p>
     </div>
-    <div class="file">
-        <label class="file-label">
-            <input class="file-input" type="file" name="resume" />
-            <span class="file-cta">
-                        <span class="file-icon">
-                            <i class="fas fa-upload"></i>
-                        </span>
-                        <span class="file-label">
-                            Charger une image
-                        </span>
+    <div class="field">
+        <p class="control has-icons-left">
+            <input class="input" type="text" name="cover" placeholder="Lien vers une image (facultatif)"/>
+            <span class="icon is-small is-left">
+                        <i class="fas fa-file"></i>
                     </span>
-        </label>
+        </p>
     </div>
     <div class="field">
         <p class="control">
-            <button class="button & connection">
+            <button class="button & connection" type="submit">
                 Ajouter
             </button>
         </p>
     </div>
-</div>
+</form>
 <div class="block">
     <footer class="footer">
         <div class="footer-informations">

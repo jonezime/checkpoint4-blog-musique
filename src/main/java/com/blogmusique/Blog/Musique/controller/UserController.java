@@ -27,9 +27,6 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private BandRepository bandRepository;
-
     @GetMapping("/registration")
     public String registration(HttpSession session) {
         return "registration";
@@ -50,7 +47,7 @@ public class UserController {
     }
 
     @GetMapping("/sign")
-    public String sign() {
+    public String sign(HttpSession session) {
         return "index";
     }
 
@@ -76,11 +73,6 @@ public class UserController {
         }
 
         return "index";
-    }
-
-    @GetMapping("/add")
-    public String add(HttpSession session) {
-        return "add";
     }
 
     @GetMapping("/list")

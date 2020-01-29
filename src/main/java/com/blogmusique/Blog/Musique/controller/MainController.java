@@ -11,12 +11,6 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class MainController {
 
-    @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    private BandRepository bandRepository;
-
     @GetMapping("/")
     public String index(HttpSession session) {
 

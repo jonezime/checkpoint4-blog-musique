@@ -30,4 +30,10 @@ public class Band {
     public Band() {
 
     }
+
+    public Band(String name, String genre, String cover) {
+        this.name = name;
+        this.genre = genre;
+        this.cover = cover;
+    }
 }
