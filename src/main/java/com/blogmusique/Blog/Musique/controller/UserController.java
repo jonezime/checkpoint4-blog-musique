@@ -75,11 +75,6 @@ public class UserController {
         return "index";
     }
 
-    @GetMapping("/list")
-    public String list(HttpSession session) {
-        return "list";
-    }
-
     @GetMapping("/admin")
     public String admin(HttpSession session, Model out) {
 
