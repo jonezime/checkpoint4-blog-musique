@@ -13,10 +13,8 @@
 <div class="block">
     <header class="header">
         <nav class="header-menu">
-            <a th:href="@{/}" class="button & button-header">Accueil</a>
+            <a th:href="@{/}" class="button & button-header">Connexion</a>
             <a th:href="@{/registration}" class="button & button-header">Inscription</a>
-            <a th:href="@{/add}" class="button & button-header">Ajouter</a>
-            <a th:href="@{/list}" class="button & button-header">Ma liste</a>
         </nav>
     </header>
 </div>
@@ -32,15 +30,15 @@
 <form class="container" method="post" th:action="@{/registration}">
     <div class="field">
         <p class="control has-icons-left">
-            <input class="input" type="email" name="email" placeholder="Email" required/>
+            <input class="input" type="email" placeholder="Email" required/>
             <span class="icon is-small is-left">
-                        <i class="fas fa-envelope"></i>
+                        <i class="fas fa-envelope-open"></i>
                     </span>
         </p>
     </div>
     <div class="field">
         <p class="control has-icons-left">
-            <input class="input" type="email" placeholder="Confirmer l'email" required/>
+            <input class="input" type="email" name="email" placeholder="Confirmer l'email" required/>
             <span class="icon is-small is-left">
                         <i class="fas fa-envelope"></i>
                     </span>
@@ -65,12 +63,18 @@
     <div class="field">
         <p class="control">
             <input type="submit" class="button & connection" value="Inscription">
-            <button th:href="@{/index.html}" class="button & registration">
-                Connexion
-            </button>
         </p>
     </div>
 </form>
+<br>
+<div class="container is-centered">
+    <div class="field is-grouped">
+        <h2 class="subtitle">Déjà membre ?</h2>
+        <a th:href="@{/}"><button class="button & registration">
+            Connexion
+        </button></a>
+    </div>
+</div>
 <div class="block">
     <footer class="footer">
         <div class="footer-informations">
@@ -79,9 +83,6 @@
             <ul>
                 <li>
                     <a href="#"><i class="fab fa-github"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fab fa-spotify"></i></a>
                 </li>
             </ul>
         </div>

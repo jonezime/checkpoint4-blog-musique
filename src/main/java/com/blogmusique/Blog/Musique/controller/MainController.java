@@ -30,4 +30,12 @@ public class MainController {
 
         return "index";
     }
+
+    @GetMapping("/disconnect")
+    public String disconnect(HttpSession session) {
+        session.removeAttribute("adminId");
+        session.removeAttribute("userId");
+
+        return "redirect:/";
+    }
 }

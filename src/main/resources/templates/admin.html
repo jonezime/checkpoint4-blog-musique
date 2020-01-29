@@ -14,10 +14,7 @@
 <div class="block">
     <header class="header">
         <nav class="header-menu">
-            <a th:href="@{/}" class="button & button-header">Accueil</a>
-            <a th:href="@{/registration}" class="button & button-header">Inscription</a>
-            <a th:href="@{/add}" class="button & button-header">Ajouter</a>
-            <a th:href="@{/list}" class="button & button-header">Ma liste</a>
+            <a th:href="@{/disconnect}" class="button & button-header">Déconnexion</a>
         </nav>
     </header>
 </div>
@@ -30,20 +27,23 @@
         </div>
     </div>
 </div>
-<div class="container">
-    <div class="columns is-multiline">
+<div class="container is-fluid" style="display:flex">
         <div class="card" th:each="user : ${userList}">
             <div class="card-content">
                 <div class="media">
                     <div class="media-content">
                         <p class="title is-4" th:text="${user.email}">Email de l'utilisateur</p>
-                        <a th:href="@{/admin/delete(idUser=${user.id})}"><p class="button">Supprimer</p></a>
-                        <a th:href="@{/admin/disable(idUser=${user.id})}"><p class="button">Désactiver</p></a>
+                        <a th:href="@{/admin/delete(idUser=${user.id})}"><p class="button is-danger">Supprimer</p></a>
+                        <span th:if="${user.active}">
+                        <a th:href="@{/admin/disable(idUser=${user.id})}"><p class="button is-warning">Désactiver</p></a>
+                        </span>
+                        <span th:unless="${user.active}">
+                        <a th:href="@{/admin/activate(idUser=${user.id})}"><p class="button is-success">Activer</p></a>
+                        </span>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 </div>
 <div class="block">
     <footer class="footer">

@@ -17,6 +17,8 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpSession;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -49,7 +51,7 @@ public class UserController {
 
     @GetMapping("/sign")
     public String sign() {
-        return "list";
+        return "index";
     }
 
     @PostMapping("/sign")
@@ -63,13 +65,17 @@ public class UserController {
 
         User user = userRepository.findByEmailAndPassword(email, encryptedPassword);
 
-        if (user.getRole().equals("user")) {
+        if (user.getRole().equals("user") & user.isActive()) {
             session.setAttribute("userId", user.getId());
             return "redirect:/list";
         }
 
+        if (user.getRole().equals("admin")) {
         session.setAttribute("adminId", user.getId());
         return "redirect:/admin";
+        }
+
+        return "index";
     }
 
     @GetMapping("/add")
@@ -85,7 +91,12 @@ public class UserController {
     @GetMapping("/admin")
     public String admin(HttpSession session, Model out) {
 
-        out.addAttribute("userList", userRepository.findAllByRoleEquals("user"));
+        List<User> userList = new ArrayList<>();
+        for (User user : userRepository.findAllByRoleEquals("user")) {
+            userList.add(user);
+        }
+
+        out.addAttribute("userList", userList);
         return "admin";
     }
 
@@ -103,6 +114,18 @@ public class UserController {
 
         User user = userRepository.findById(idUser).get();
         user.setActive(false);
+        userRepository.save(user);
+
+        return "redirect:/admin";
+    }
+
+    @GetMapping("/admin/activate")
+    public String activateUser(HttpSession session,
+                              @RequestParam(required = false) Long idUser) {
+
+        User user = userRepository.findById(idUser).get();
+        user.setActive(true);
+        userRepository.save(user);
 
         return "redirect:/admin";
     }
