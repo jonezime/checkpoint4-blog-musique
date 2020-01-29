@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class MainController {
 
@@ -16,7 +18,16 @@ public class MainController {
     private BandRepository bandRepository;
 
     @GetMapping("/")
-    public String index() {
+    public String index(HttpSession session) {
+
+        if (session.getAttribute("userId") != null) {
+            return "redirect:/list";
+        }
+
+        if (session.getAttribute("adminId") != null) {
+            return "redirect:/admin";
+        }
+
         return "index";
     }
 }

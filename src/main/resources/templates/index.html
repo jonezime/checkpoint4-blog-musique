@@ -29,7 +29,7 @@
         </div>
     </div>
 </div>
-<form class="container" th:action="@{/sign}" method="post">
+<form class="container" th:action="@{/sign}" method="post" th:if="${session.userId == null and session.adminId == null}">
     <div class="field">
         <p class="control has-icons-left">
             <input class="input" type="email" name="email" placeholder="Email" />
@@ -62,10 +62,7 @@
             <p>Checkpoint 4</p>
             <ul>
                 <li>
-                    <a href="#"><i class="fab fa-github"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fab fa-spotify"></i></a>
+                    <a href="https://github.com/jonezime/checkpoint4-blog-musique"><i class="fab fa-github"></i></a>
                 </li>
             </ul>
         </div>

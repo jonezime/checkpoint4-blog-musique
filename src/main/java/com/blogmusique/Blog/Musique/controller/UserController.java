@@ -29,7 +29,7 @@ public class UserController {
     private BandRepository bandRepository;
 
     @GetMapping("/registration")
-    public String registration() {
+    public String registration(HttpSession session) {
         return "registration";
     }
 
@@ -64,29 +64,46 @@ public class UserController {
         User user = userRepository.findByEmailAndPassword(email, encryptedPassword);
 
         if (user.getRole().equals("user")) {
+            session.setAttribute("userId", user.getId());
             return "redirect:/list";
         }
 
+        session.setAttribute("adminId", user.getId());
         return "redirect:/admin";
     }
 
     @GetMapping("/add")
-    public String add() {
+    public String add(HttpSession session) {
         return "add";
     }
 
     @GetMapping("/list")
-    public String list() {
+    public String list(HttpSession session) {
         return "list";
     }
 
     @GetMapping("/admin")
-    public String userUpdate(HttpSession session,
-                              @RequestParam(required = false) Long idUser,
-                              Model out) {
+    public String admin(HttpSession session, Model out) {
 
-        out.addAttribute("userList", userRepository.findAll());
-        userRepository.deleteById(idUser);
+        out.addAttribute("userList", userRepository.findAllByRoleEquals("user"));
         return "admin";
+    }
+
+    @GetMapping("/admin/delete")
+    public String deleteUser(HttpSession session,
+                             @RequestParam(required = false) Long idUser) {
+
+        userRepository.deleteById(idUser);
+        return "redirect:/admin";
+    }
+
+    @GetMapping("/admin/disable")
+    public String disableUser(HttpSession session,
+                              @RequestParam(required = false) Long idUser) {
+
+        User user = userRepository.findById(idUser).get();
+        user.setActive(false);
+
+        return "redirect:/admin";
     }
 }

@@ -37,8 +37,8 @@
                 <div class="media">
                     <div class="media-content">
                         <p class="title is-4" th:text="${user.email}">Email de l'utilisateur</p>
-                        <a th:href="@{/admin(idUser=${user.id})}"><p class="button">Supprimer</p></a>
-                        <p class="button">Désactiver</p>
+                        <a th:href="@{/admin/delete(idUser=${user.id})}"><p class="button">Supprimer</p></a>
+                        <a th:href="@{/admin/disable(idUser=${user.id})}"><p class="button">Désactiver</p></a>
                     </div>
                 </div>
             </div>
