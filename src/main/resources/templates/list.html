@@ -33,7 +33,7 @@
     <div class="card" th:each="band : ${bandList}">
         <div class="card-image">
             <figure class="image is-4by3">
-                <img th:src="@{band.cover}" alt="Cover artiste" />
+                <img th:src="@{${band.cover}}" alt="Cover artiste" />
             </figure>
         </div>
         <div class="card-content">
@@ -41,7 +41,7 @@
                 <div class="media-content">
                     <p class="title is-4" th:text="${band.name}">Nom de l'artiste</p>
                     <p class="subtitle is-6" th:text="${band.genre}">Style musical</p>
-                    <p class="button">Supprimer</p>
+                    <a th:href="@{/removeBand(bandId=${band.id})}"><p class="button">Supprimer</p></a>
                 </div>
             </div>
         </div>
@@ -54,10 +54,7 @@
             <p>Checkpoint 4</p>
             <ul>
                 <li>
-                    <a href="#"><i class="fab fa-github"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fab fa-spotify"></i></a>
+                    <a href="https://github.com/jonezime/checkpoint4-blog-musique"><i class="fab fa-github"></i></a>
                 </li>
             </ul>
         </div>

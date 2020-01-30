@@ -23,7 +23,6 @@ public class Band {
     @NotNull
     private String genre;
 
-    @NotNull
     private String cover;
 
     public Band() {

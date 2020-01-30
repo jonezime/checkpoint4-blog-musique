@@ -39,18 +39,34 @@ public class BandController {
             cover = "/img/cover-band.jpg";
         }
 
-        Band band = new Band(name, genre, cover);
+        User user = userRepository.findById((Long) session.getAttribute("userId")).get();
 
-        bandRepository.save(band);
+        List<Band> bandList = new ArrayList<>();
+        bandList.add(new Band(name, genre, cover));
+        user.setBands(bandList);
 
-        return  "redirect:/addBand";
+        userRepository.save(user);
+
+        return "redirect:/addBand";
     }
 
     @GetMapping("/removeBand")
-    public String removeBand(HttpSession session) {
+    public String removeBand(HttpSession session,
+                             @RequestParam Long bandId) {
 
-        User user = (User) session.getAttribute("userId");
-        bandRepository.deleteById(user.getId());
+        User user = userRepository.findById((Long) session.getAttribute("userId")).get();
+
+        List<Band> bandList = user.getBands();
+        for (Band band : bandList) {
+            System.out.println(band.getName().toString());
+            if (band.getId() == bandId) {
+                bandList.remove(band);
+                break;
+            }
+        }
+
+        userRepository.save(user);
+
         return "redirect:/list";
     }
 
@@ -58,11 +74,9 @@ public class BandController {
     public String list(HttpSession session,
                        Model out) {
 
-        User user = (User) session.getAttribute("userId");
+        User user = userRepository.findById((Long) session.getAttribute("userId")).get();
         List<Band> bandList = user.getBands();
         out.addAttribute("bandList", bandList);
         return "list";
     }
-
-
 }

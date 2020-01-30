@@ -10,5 +10,4 @@ import java.util.List;
 public interface BandRepository extends JpaRepository<Band, Long> {
 
     List<Band> findBandsById (Long id);
-
 }

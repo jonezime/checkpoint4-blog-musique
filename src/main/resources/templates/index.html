@@ -13,7 +13,6 @@
 <div class="block">
     <header class="header">
         <nav class="header-menu">
-            <a th:href="@{/}" class="button & button-header">Connexion</a>
             <a th:href="@{/registration}" class="button & button-header">Inscription</a>
         </nav>
     </header>
@@ -27,7 +26,7 @@
         </div>
     </div>
 </div>
-<form class="container" th:action="@{/sign}" method="post" th:if="${session.userId == null and session.adminId == null}">
+<form class="container" th:action="@{/}" method="post">
     <div class="field">
         <p class="control has-icons-left">
             <input class="input" type="email" name="email" placeholder="Email" />
@@ -51,9 +50,9 @@
     </div>
 </form>
 <br>
-<div class="container is-centered">
-    <div class="field is-grouped">
-        <h2 class="subtitle">Pas encore membre ?</h2>
+<div class="container">
+    <div class="field is-grouped & not-yet-container" style="justify-content:space-around">
+        <h2 class="subtitle & not-yet" style="margin-top: 6px">Pas encore membre ?</h2>
         <a th:href="@{/registration}"><button class="button & registration">
             Inscription
         </button></a>

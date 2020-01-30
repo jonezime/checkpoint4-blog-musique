@@ -22,58 +22,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-public class UserController {
+public class AdminController {
 
     @Autowired
     private UserRepository userRepository;
-
-    @GetMapping("/registration")
-    public String registration(HttpSession session) {
-        return "registration";
-    }
-
-    @PostMapping("/registration")
-    public String registrationPost(HttpSession session,
-                                   @ModelAttribute User user) {
-
-        String encryptedPassword = Hashing.sha256()
-                .hashString(user.getPassword(), StandardCharsets.UTF_8)
-                .toString();
-        user.setPassword(encryptedPassword);
-
-        userRepository.save(user);
-
-        return "list";
-    }
-
-    @GetMapping("/sign")
-    public String sign(HttpSession session) {
-        return "index";
-    }
-
-    @PostMapping("/sign")
-    public String signPost(@RequestParam String email,
-                           @RequestParam String password,
-                           HttpSession session) {
-
-        String encryptedPassword = Hashing.sha256()
-                .hashString(password, StandardCharsets.UTF_8)
-                .toString();
-
-        User user = userRepository.findByEmailAndPassword(email, encryptedPassword);
-
-        if (user.getRole().equals("user") & user.isActive()) {
-            session.setAttribute("userId", user.getId());
-            return "redirect:/list";
-        }
-
-        if (user.getRole().equals("admin")) {
-        session.setAttribute("adminId", user.getId());
-        return "redirect:/admin";
-        }
-
-        return "index";
-    }
 
     @GetMapping("/admin")
     public String admin(HttpSession session, Model out) {
