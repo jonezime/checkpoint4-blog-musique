@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>O&Zim - Admin</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" th:href="@{/css/admin.css}"/>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+<body>
+<div class="block">
+    <header class="header">
+        <nav class="header-menu">
+            <a th:href="@{/disconnect}" class="button is-danger & button-header">Déconnexion</a>
+            <a th:href="@{/admin/groups}" class="button & button-header">Groupes</a>
+        </nav>
+    </header>
+</div>
+<div class="block">
+    <div class="banner">
+        <img th:src="@{/img/banner2.png}" alt="bannière site" class="banner-image"/>
+        <div class="banner-content">
+            <h1 class="title is-1">O&Zim</h1>
+            <h2 class="subtitle">Partie administrateur</h2>
+            <h2 class="subtitle">Mise à jour d'un groupe</h2>
+        </div>
+    </div>
+</div>
+<form class="container" method="post" th:action="@{/admin/groups/update}">
+    <input type="hidden" name="id" th:value="${band.id}">
+    <div class="container-post">
+        <div class="field" id="votre-groupe">
+            <label class="label" th:text="|Nom : ${band.name}|">Nom</label>
+            <p class="control has-icons-left">
+                <input class="input" type="text" name="name" placeholder="Nom de l'artiste"/>
+                <span class="icon is-small is-left">
+                <i class="fas fa-compact-disc"></i>
+            </span>
+            </p>
+        </div>
+        <div class="field">
+            <label class="label" th:text="|Genre : ${band.genre}|">Genre</label>
+            <p class="control has-icons-left">
+                <input class="input" type="text" name="genre" placeholder="Style musical"/>
+                <span class="icon is-small is-left">
+                <i class="fas fa-drum"></i>
+            </span>
+            </p>
+        </div>
+        <div class="field">
+            <label class="label">Image</label>
+            <p class="control has-icons-left">
+                <input class="input" type="text" name="cover" placeholder="Lien vers une image"/>
+                <span class="icon is-small is-left">
+                <i class="fas fa-file"></i>
+            </span>
+            </p>
+        </div>
+        <div class="field">
+            <p class="control">
+                <a th:href="@{/admin/groups}">
+                    <button class="button is-info" type="submit">
+                        Modifier
+                    </button>
+                </a>
+            </p>
+        </div>
+    </div>
+</form>
+<div class="block">
+    <footer class="footer">
+        <div class="footer-informations">
+            <p>Wild Code School</p>
+            <p>Checkpoint 4</p>
+            <ul>
+                <li>
+                    <a href="https://github.com/jonezime/checkpoint4-blog-musique"><i class="fab fa-github"></i></a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

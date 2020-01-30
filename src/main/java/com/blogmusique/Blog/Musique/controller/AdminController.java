@@ -1,22 +1,18 @@
 package com.blogmusique.Blog.Musique.controller;
 
+import com.blogmusique.Blog.Musique.entity.Band;
 import com.blogmusique.Blog.Musique.entity.User;
 import com.blogmusique.Blog.Musique.repository.BandRepository;
 import com.blogmusique.Blog.Musique.repository.UserRepository;
-import com.google.common.hash.Hashing;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpSession;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -27,6 +23,9 @@ public class AdminController {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private BandRepository bandRepository;
+
     @GetMapping("/admin")
     public String admin(HttpSession session, Model out) {
 
@@ -36,7 +35,7 @@ public class AdminController {
         }
 
         out.addAttribute("userList", userList);
-        return "admin";
+        return "admin-users";
     }
 
     @GetMapping("/admin/delete")
@@ -67,5 +66,45 @@ public class AdminController {
         userRepository.save(user);
 
         return "redirect:/admin";
+    }
+
+    @GetMapping("/admin/groups")
+    public String listGroups(HttpSession session, Model out) {
+
+        List<Band> bands = bandRepository.findAll();
+
+        out.addAttribute("bandList", bands);
+
+        return "admin-groups";
+    }
+
+    @GetMapping("/admin/groups/update")
+    public String updateGroup(HttpSession session,
+                              Model out,
+                              @RequestParam Long bandId) {
+
+        Band band = bandRepository.findById(bandId).get();
+
+        out.addAttribute("band", band);
+
+        return "admin-update";
+    }
+
+    @PostMapping("/admin/groups/update")
+    public String updateGroupForm(HttpSession session,
+                              @RequestParam(required = false) String cover,
+                              @RequestParam(required = false) String genre,
+                              @RequestParam(required = false) String name,
+                              @RequestParam Long id) {
+
+        Band band = bandRepository.findById(id).get();
+
+        band.setCover(cover);
+        band.setGenre(genre);
+        band.setName(name);
+
+        bandRepository.save(band);
+
+        return "redirect:/admin/groups";
     }
 }
