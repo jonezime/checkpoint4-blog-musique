@@ -82,6 +82,7 @@ a:visited {
 }
 
 .registration {
+    margin-left: -50px !important;
     color: white;
     background-color: darkgreen;
 }
