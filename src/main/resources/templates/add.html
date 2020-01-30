@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>O&Zim - Ajout</title>
+    <title>O&Zim - Ajout groupe</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" />
     <link rel="stylesheet" th:href="@{/css/style.css}" />
     <link rel="stylesheet" th:href="@{/css/add.css}" />
@@ -25,43 +25,69 @@
         <img th:src="@{/img/banner2.png}" alt="bannière site" class="banner-image" />
         <div class="banner-content">
             <h1 class="title is-1">O&Zim</h1>
-            <h2 class="subtitle">Ajouter un groupe</h2>
+            <h2 class="subtitle">Ajouter des groupes</h2>
         </div>
     </div>
 </div>
+<div class="container & main-container">
+    <div class="container is-fluid & titles-container">
+        <a href=""><h3 class="subtitle is-3" id="groupes">Groupes disponibles</h3></a>
+        <a href="#votre-groupe"><h3 class="subtitle is-3">Ajoutez votre groupe</h3></a>
+    </div>
+    <div class="block & card-container">
+        <div class="card & each-card" th:each="band : ${bandList}">
+            <div class="card-image">
+                <figure class="image is-4by3 & image-from-card">
+                    <img th:src="@{${band.cover}}" alt="Cover artiste" />
+                </figure>
+            </div>
+            <div class="card-content">
+                <div class="media">
+                    <div class="media-content">
+                        <p class="title is-4" th:text="${band.name}">Nom de l'artiste</p>
+                        <p class="subtitle is-6" th:text="${band.genre}">Style musical</p>
+                        <a th:href="@{/addBand/list(bandId=${band.id})}"><p class="button is-success">Ajouter</p></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<h2 class="subtitle" id="votre-groupe">Ajoutez votre groupe</h2>
 <form class="container" method="post" th:action="@{/addBand}">
     <div class="field">
         <p class="control has-icons-left">
             <input class="input" type="text" name="name" placeholder="Nom de l'artiste" required/>
             <span class="icon is-small is-left">
-                        <i class="fas fa-compact-disc"></i>
-                    </span>
+                <i class="fas fa-compact-disc"></i>
+            </span>
         </p>
     </div>
     <div class="field">
         <p class="control has-icons-left">
             <input class="input" type="text" name="genre" placeholder="Style musical" required/>
             <span class="icon is-small is-left">
-                        <i class="fas fa-drum"></i>
-                    </span>
+                <i class="fas fa-drum"></i>
+            </span>
         </p>
     </div>
     <div class="field">
         <p class="control has-icons-left">
             <input class="input" type="text" name="cover" placeholder="Lien vers une image (facultatif)"/>
             <span class="icon is-small is-left">
-                        <i class="fas fa-file"></i>
-                    </span>
+                <i class="fas fa-file"></i>
+            </span>
         </p>
     </div>
     <div class="field">
         <p class="control">
-            <button class="button & connection" type="submit">
+            <button class="button is-info" type="submit">
                 Ajouter
             </button>
         </p>
     </div>
 </form>
+<a href="#groupes"><button class="button is-success & button-return">Retour aux groupes disponibles</button></a>
 <div class="block">
     <footer class="footer">
         <div class="footer-informations">

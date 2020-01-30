@@ -1,3 +1,9 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 a,
 a:visited {
     color: black;
@@ -29,7 +35,7 @@ a:visited {
 }
 
 .header-menu a:hover {
-    color: orange;
+    color: cadetblue;
 }
 
 .button-header {
@@ -63,16 +69,16 @@ a:visited {
 */
 
 .container {
-    width: 25%;
+    width: 35%;
 }
 
 .input {
-    background-color: #dbd6a4;
+    background-color: #ffeef3;
 }
 
 .connection {
     color: white;
-    background-color: lightskyblue;
+    background-color: cadetblue;
 }
 
 .registration {
@@ -81,20 +87,45 @@ a:visited {
 }
 
 .icon.is-small.is-left {
-    color: orange;
+    color: cadetblue;
 }
 
 .not-yet-container {
-    justify-content:space-around;
+    justify-content:space-evenly !important;
 }
 
 .not-yet {
+    margin-top: 6px;
+}
 
+/*LIST
+*/
+
+.card-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+}
+
+.each-card {
+    min-height: 400px;
+    max-height: 400px;
+    min-width: 330px;
+    max-width: 330px;
+}
+
+.image-from-card {
+    min-height: 235px;
+    max-height: 235px;
+    min-width: 330px;
+    max-width: 330px;
 }
 
 /*FOOTER
 */
 
+.footer {
+    margin-top: 50px;
+}
 .footer-informations {
     text-align: center;
     margin-top: 30px;

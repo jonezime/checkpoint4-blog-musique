@@ -1,3 +1,32 @@
 .connection {
     margin-top: 15px;
 }
+
+.card {
+    margin: 10px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.main-container {
+    display: contents;
+}
+
+.container a h3:hover {
+    color: cadetblue;
+}
+
+.titles-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 15px;
+}
+
+.button-return {
+    margin-top: 15px !important;
+    display: block;
+    margin : auto;
+}

@@ -14,7 +14,6 @@
     <header class="header">
         <nav class="header-menu">
             <a th:href="@{/}" class="button & button-header">Connexion</a>
-            <a th:href="@{/registration}" class="button & button-header">Inscription</a>
         </nav>
     </header>
 </div>
@@ -68,8 +67,8 @@
 </form>
 <br>
 <div class="container is-centered">
-    <div class="field is-grouped">
-        <h2 class="subtitle">Déjà membre ?</h2>
+    <div class="field is-grouped & not-yet-container">
+        <h2 class="subtitle & not-yet">Déjà membre ?</h2>
         <a th:href="@{/}"><button class="button & registration">
             Connexion
         </button></a>

@@ -25,14 +25,14 @@
         <img th:src="@{/img/banner2.png}" alt="bannière site" class="banner-image" />
         <div class="banner-content">
             <h1 class="title is-1">O&Zim</h1>
-            <h2 class="subtitle">Liste des groupes</h2>
+            <h2 class="subtitle">Vos groupes</h2>
         </div>
     </div>
 </div>
-<div class="container is-fluid" style="display:flex">
-    <div class="card" th:each="band : ${bandList}">
+<div class="block & card-container">
+    <div class="card & each-card" th:each="band : ${bandList}">
         <div class="card-image">
-            <figure class="image is-4by3">
+            <figure class="image is-4by3 & image-from-card">
                 <img th:src="@{${band.cover}}" alt="Cover artiste" />
             </figure>
         </div>

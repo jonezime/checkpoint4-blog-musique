@@ -25,8 +25,26 @@ public class BandController {
     private UserRepository userRepository;
 
     @GetMapping("/addBand")
-    public String addBand(HttpSession session) {
+    public String addBand(HttpSession session, Model out) {
+
+        out.addAttribute("bandList", bandRepository.findAll());
         return "add";
+    }
+
+    @GetMapping("/addBand/list")
+    public String addBandList(HttpSession session,
+                              @RequestParam Long bandId) {
+
+        User user = userRepository.findById((Long) session.getAttribute("userId")).get();
+
+        Band band = bandRepository.findById(bandId).get();
+        List<Band> bandList = user.getBands();
+        bandList.add(band);
+        user.setBands(bandList);
+
+        userRepository.save(user);
+
+        return "redirect:/addBand";
     }
 
     @PostMapping("/addBand")
@@ -41,7 +59,7 @@ public class BandController {
 
         User user = userRepository.findById((Long) session.getAttribute("userId")).get();
 
-        List<Band> bandList = new ArrayList<>();
+        List<Band> bandList = user.getBands();
         bandList.add(new Band(name, genre, cover));
         user.setBands(bandList);
 
