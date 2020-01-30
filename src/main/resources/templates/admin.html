@@ -7,7 +7,7 @@
     <title>O&Zim - Admin</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" />
     <link rel="stylesheet" th:href="@{/css/style.css}" />
-    <link rel="stylesheet" th:href="@{/css/list.css}" />
+    <link rel="stylesheet" th:href="@{/css/admin.css}" />
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
 <body>
@@ -27,23 +27,27 @@
         </div>
     </div>
 </div>
-<div class="container is-fluid" style="display:flex">
-        <div class="card" th:each="user : ${userList}">
-            <div class="card-content">
-                <div class="media">
-                    <div class="media-content">
-                        <p class="title is-4" th:text="${user.email}">Email de l'utilisateur</p>
-                        <a th:href="@{/admin/delete(idUser=${user.id})}"><p class="button is-danger">Supprimer</p></a>
-                        <span th:if="${user.active}">
-                        <a th:href="@{/admin/disable(idUser=${user.id})}"><p class="button is-warning">Désactiver</p></a>
-                        </span>
-                        <span th:unless="${user.active}">
-                        <a th:href="@{/admin/activate(idUser=${user.id})}"><p class="button is-success">Activer</p></a>
-                        </span>
+<div class="container & main-container">
+    <div class="card & titles-container" th:each="user : ${userList}">
+        <div class="card-content">
+            <div class="media">
+                <div class="media-content">
+                    <p class="title is-4" th:text="${user.email}">Email de l'utilisateur</p>
+                    <div class="field is-grouped">
+                        <p class="control">
+                            <a th:href="@{/admin/delete(idUser=${user.id})}"><button class="button is-danger">Supprimer</button></a>
+                        </p>
+                        <p class="control" th:if="${user.active}">
+                            <a th:href="@{/admin/disable(idUser=${user.id})}"><button class="button is-warning">Désactiver</button></a>
+                        </p>
+                        <p class="control" th:unless="${user.active}">
+                            <a th:href="@{/admin/activate(idUser=${user.id})}"><button class="button is-success">Activer</button></a>
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 </div>
 <div class="block">
     <footer class="footer">

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 public class BandController {
@@ -38,7 +39,7 @@ public class BandController {
         User user = userRepository.findById((Long) session.getAttribute("userId")).get();
 
         Band band = bandRepository.findById(bandId).get();
-        List<Band> bandList = user.getBands();
+        Set<Band> bandList = user.getBands();
         bandList.add(band);
         user.setBands(bandList);
 
@@ -54,12 +55,12 @@ public class BandController {
                               @RequestParam(required = false) String cover) {
 
         if (cover.isEmpty()) {
-            cover = "/img/cover-band.jpg";
+            cover = "/img/cover.jpg";
         }
 
         User user = userRepository.findById((Long) session.getAttribute("userId")).get();
 
-        List<Band> bandList = user.getBands();
+        Set<Band> bandList = user.getBands();
         bandList.add(new Band(name, genre, cover));
         user.setBands(bandList);
 
@@ -74,7 +75,7 @@ public class BandController {
 
         User user = userRepository.findById((Long) session.getAttribute("userId")).get();
 
-        List<Band> bandList = user.getBands();
+        Set<Band> bandList = user.getBands();
         for (Band band : bandList) {
             System.out.println(band.getName().toString());
             if (band.getId() == bandId) {
@@ -93,7 +94,7 @@ public class BandController {
                        Model out) {
 
         User user = userRepository.findById((Long) session.getAttribute("userId")).get();
-        List<Band> bandList = user.getBands();
+        Set<Band> bandList = user.getBands();
         out.addAttribute("bandList", bandList);
         return "list";
     }

@@ -14,7 +14,7 @@ h2 {
     display: contents;
 }
 
-.container a h3:hover {
+.container a h4:hover {
     color: cadetblue;
 }
 
@@ -23,6 +23,10 @@ h2 {
     align-items: center;
     justify-content: space-around;
     margin-bottom: 15px;
+}
+
+.container-post {
+    margin-top: 25px !important;
 }
 
 .button-return {

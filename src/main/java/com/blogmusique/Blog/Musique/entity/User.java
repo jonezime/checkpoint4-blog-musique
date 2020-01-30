@@ -7,7 +7,9 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -34,7 +36,7 @@ public class User implements Serializable {
     @JoinTable(name = "user_band",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "band_id" ))
-    private List<Band> bands = new ArrayList<>();
+    private Set<Band> bands = new HashSet<>();
 
     public User() {
 

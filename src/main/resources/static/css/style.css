@@ -98,25 +98,25 @@ a:visited {
     margin-top: 6px;
 }
 
-/*LIST
-*/
+/*
+CARDS
+ */
 
-.card-container {
-    display: flex !important;
-    flex-wrap: wrap !important;
+.box.has-text-centered {
+    box-shadow: none;
 }
 
 .each-card {
     min-height: 400px;
-    max-height: 400px;
-    min-width: 330px;
+    max-height: 450px;
+    min-width: 300px;
     max-width: 330px;
 }
 
 .image-from-card {
     min-height: 235px;
     max-height: 235px;
-    min-width: 330px;
+    min-width: 300px;
     max-width: 330px;
 }
 

@@ -1,0 +1,19 @@
+.card {
+    margin: 10px;
+}
+
+.card-content {
+    background-color: lightgray;
+}
+
+.main-container {
+    display: contents;
+}
+
+.titles-container {
+    margin-bottom: 15px;
+}
+
+.card-content {
+    background-color: white;
+}

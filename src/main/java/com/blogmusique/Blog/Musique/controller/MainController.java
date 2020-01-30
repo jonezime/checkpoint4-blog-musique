@@ -36,15 +36,25 @@ public class MainController {
                 .hashString(password, StandardCharsets.UTF_8)
                 .toString();
 
-        User user = userRepository.findByEmailAndPassword(email, encryptedPassword);
-        if (user.getRole().equals("user") & user.isActive()) {
-            session.setAttribute("userId", user.getId());
-            return "redirect:/list";
-        }
+        try {
+            User user = userRepository.findByEmailAndPassword(email, encryptedPassword);
 
-        if (user.getRole().equals("admin")) {
-            session.setAttribute("adminId", user.getId());
-            return "redirect:/admin";
+            if (user.getRole().equals("user") & user.isActive()) {
+                session.setAttribute("userId", user.getId());
+                return "redirect:/list";
+            }
+
+            if (user.getRole().equals("user") & !user.isActive()) {
+                session.setAttribute("userId", user.getId());
+                return "index";
+            }
+
+            if (user.getRole().equals("admin")) {
+                session.setAttribute("adminId", user.getId());
+                return "redirect:/admin";
+            }
+        } catch (Exception e){
+            return "index";
         }
 
         return "index";
