@@ -33,27 +33,27 @@
     <input type="hidden" name="id" th:value="${band.id}">
     <div class="container-post">
         <div class="field" id="votre-groupe">
-            <label class="label" th:text="|Nom : ${band.name}|">Nom</label>
+            <label class="label">Nom du groupe</label>
             <p class="control has-icons-left">
-                <input class="input" type="text" name="name" placeholder="Nom de l'artiste"/>
+                <input class="input" type="text" name="name" th:value="${band.name}"/>
                 <span class="icon is-small is-left">
                 <i class="fas fa-compact-disc"></i>
             </span>
             </p>
         </div>
         <div class="field">
-            <label class="label" th:text="|Genre : ${band.genre}|">Genre</label>
+            <label class="label">Style musical</label>
             <p class="control has-icons-left">
-                <input class="input" type="text" name="genre" placeholder="Style musical"/>
+                <input class="input" type="text" name="genre" th:value="${band.genre}"/>
                 <span class="icon is-small is-left">
                 <i class="fas fa-drum"></i>
             </span>
             </p>
         </div>
         <div class="field">
-            <label class="label">Image</label>
+            <label class="label">Lien vers une image</label>
             <p class="control has-icons-left">
-                <input class="input" type="text" name="cover" placeholder="Lien vers une image"/>
+                <input class="input" type="text" name="cover" th:value="${band.cover}"/>
                 <span class="icon is-small is-left">
                 <i class="fas fa-file"></i>
             </span>
