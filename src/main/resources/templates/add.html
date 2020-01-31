@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"/>
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
     <link rel="stylesheet" th:href="@{/css/add.css}"/>
+    <link href="https://fonts.googleapis.com/css?family=Mansalva&display=swap" rel="stylesheet">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
 <body>
-<div class="block">
+<div class="block" id="retour">
     <header class="header">
         <nav class="header-menu">
             <a th:href="@{/disconnect}" class="button is-danger & button-header">Déconnexion</a>
@@ -24,33 +25,32 @@
     <div class="banner">
         <img th:src="@{/img/banner2.png}" alt="bannière site" class="banner-image"/>
         <div class="banner-content">
-            <h1 class="title is-1">O&Zim</h1>
-            <h2 class="subtitle">Ajouter des groupes</h2>
+            <h1 class="zim-title">O&Zim</h1>
+            <h1 class="zim-subtitle">Groupes disponibles</h1>
         </div>
     </div>
 </div>
-<div class="container & main-container">
-    <div class="container is-fluid & titles-container">
-        <a href=""><h4 class="subtitle is-4" id="groupes">Groupes disponibles</h4></a>
-        <a href="#votre-groupe"><h4 class="subtitle is-4">Ajouter un groupe</h4></a>
+<div class="container">
+    <div class="container">
+        <a href="#add"><div class="button is-medium is-warning & button-add-band">Ajoutez votre groupe</div></a>
     </div>
-    <div class="columns is-multiline">
-        <div class="column is-one-quarter" th:each="band : ${bandList}">
-            <div class="card & each-card">
-                <div class="card-image">
-                    <figure class="image is-4by3 & image-from-card">
-                        <img th:src="@{${band.cover}}" alt="Cover artiste"/>
-                    </figure>
-                </div>
-                <div class="card-content">
-                    <div class="media">
-                        <div class="media-content">
-                            <p class="title is-4" th:text="${band.name}">Nom de l'artiste</p>
-                            <p class="subtitle is-6" th:text="${band.genre}">Style musical</p>
-                            <div class="box has-text-centered">
-                                <a th:href="@{/addBand/list(bandId=${band.id})}"><p class="button is-success">
-                                    Ajouter</p></a>
-                            </div>
+</div>
+<div class="columns is-multiline">
+    <div class="column is-one-fifth" th:each="band : ${bandList}">
+        <div class="card">
+            <div class="card-image">
+                <figure class="image is-4by3">
+                    <img th:src="@{${band.cover}}" alt="Cover artiste"/>
+                </figure>
+            </div>
+            <div class="card-content">
+                <div class="media">
+                    <div class="media-content">
+                        <p class="title is-4" th:text="${band.name}">Nom de l'artiste</p>
+                        <p class="subtitle is-6" th:text="${band.genre}">Style musical</p>
+                        <div class="box has-text-centered">
+                            <a th:href="@{/addBand/list(bandId=${band.id})}"><p class="button is-success">
+                                Ajouter</p></a>
                         </div>
                     </div>
                 </div>
@@ -58,8 +58,8 @@
         </div>
     </div>
 </div>
-<form class="container" method="post" th:action="@{/addBand}">
-    <div class="container-post">
+<form class="container" method="post" th:action="@{/addBand}" id="add">
+    <div class="container & container-post">
         <div class="field" id="votre-groupe">
             <p class="control has-icons-left">
                 <input class="input" type="text" name="name" placeholder="Nom de l'artiste" required/>
@@ -93,8 +93,8 @@
         </div>
     </div>
 </form>
-<a href="#groupes">
-    <button class="button is-success & button-return">Retour aux groupes disponibles</button>
+<a href="#retour">
+    <button class="button is-warning & button-return">Haut de page</button>
 </a>
 <div class="block">
     <footer class="footer">

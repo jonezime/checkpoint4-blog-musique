@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" />
     <link rel="stylesheet" th:href="@{/css/style.css}" />
     <link rel="stylesheet" th:href="@{/css/admin.css}" />
+    <link href="https://fonts.googleapis.com/css?family=Mansalva&display=swap" rel="stylesheet">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
 <body>
-<div class="block">
+<div class="block" id="retour">
     <header class="header">
         <nav class="header-menu">
             <a th:href="@{/disconnect}" class="button is-danger & button-header">Déconnexion</a>
@@ -23,9 +24,8 @@
     <div class="banner">
         <img th:src="@{/img/banner2.png}" alt="bannière site" class="banner-image" />
         <div class="banner-content">
-            <h1 class="title is-1">O&Zim</h1>
-            <h2 class="subtitle">Partie administrateur</h2>
-            <h2 class="subtitle">Gestion des utilisateurs</h2>
+            <h1 class="zim-title">O&Zim</h1>
+            <h1 class="zim-subtitle">Administrateur - Gestion des utilisateurs</h1>
         </div>
     </div>
 </div>
@@ -51,6 +51,9 @@
         </div>
     </div>
 </div>
+<a href="#retour">
+    <button class="button is-warning & button-return">Haut de page</button>
+</a>
 <div class="block">
     <footer class="footer">
         <div class="footer-informations">

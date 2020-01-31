@@ -69,6 +69,18 @@ a:visited {
     top: 10%;
 }
 
+.zim-title {
+    font-family: 'Mansalva', cursive;
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+
+.zim-subtitle {
+    font-family: 'Mansalva', cursive;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
 /*LOGIN
 */
 
@@ -86,7 +98,6 @@ a:visited {
 }
 
 .registration {
-    margin-left: -50px !important;
     color: white;
     background-color: darkgreen;
 }
@@ -96,33 +107,33 @@ a:visited {
 }
 
 .not-yet-container {
-    justify-content:space-evenly !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .not-yet {
-    margin-top: 6px;
+    margin-top: 15px;
 }
 
 /*
 CARDS
  */
 
+.column.is-one-fifth {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .box.has-text-centered {
     box-shadow: none;
 }
 
-.each-card {
-    min-height: 400px;
-    max-height: 450px;
-    min-width: 300px;
-    max-width: 330px;
-}
-
-.image-from-card {
-    min-height: 235px;
-    max-height: 235px;
-    min-width: 300px;
-    max-width: 330px;
+.button-return {
+    margin-top: 30px;
+    display: block;
+    margin-left : auto;
+    margin-right: auto;
 }
 
 /*FOOTER

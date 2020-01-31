@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>O&Zim - Accueil</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" />
-    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <link href="https://fonts.googleapis.com/css?family=Mansalva&display=swap" rel="stylesheet">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
 <body>
@@ -17,45 +18,51 @@
         </nav>
     </header>
 </div>
-<div class="block">
+<div class="block" id="retour">
     <div class="banner">
-        <img th:src="@{/img/banner2.png}" alt="bannière site" class="banner-image" />
+        <img th:src="@{/img/banner2.png}" alt="bannière site" class="banner-image"/>
         <div class="banner-content">
-            <h1 class="title is-1">O&Zim</h1>
-            <h2 class="subtitle">Répertoriez vos groupes préférés</h2>
+            <h1 class="zim-title">O&Zim</h1>
+            <h1 class="zim-subtitle">Répertoriez vos groupes préférés</h1>
         </div>
     </div>
 </div>
 <form class="container" th:action="@{/}" method="post">
-    <div class="field">
-        <p class="control has-icons-left">
-            <input class="input" type="email" name="email" placeholder="Email" />
-            <span class="icon is-small is-left">
+    <div class="container">
+        <div class="field">
+            <label class="label">Email</label>
+            <p class="control has-icons-left">
+                <input class="input" type="email" name="email" placeholder="Email" label="Email"/>
+                <span class="icon is-small is-left">
                         <i class="fas fa-envelope"></i>
                     </span>
-        </p>
-    </div>
-    <div class="field">
-        <p class="control has-icons-left">
-            <input class="input" type="password" name="password" placeholder="Mot de passe" />
-            <span class="icon is-small is-left">
+            </p>
+        </div>
+        <div class="field">
+            <label class="label">Mot de passe</label>
+            <p class="control has-icons-left">
+                <input class="input" type="password" name="password" placeholder="Mot de passe" label="Mot de passe"/>
+                <span class="icon is-small is-left">
                         <i class="fas fa-lock"></i>
                     </span>
-        </p>
-    </div>
-    <div class="field">
-        <p class="control">
-            <input type="submit" class="button & connection" value="Connexion">
-        </p>
+            </p>
+        </div>
+        <div class="field">
+            <p class="control">
+                <input type="submit" class="button & connection" value="Connexion">
+            </p>
+        </div>
     </div>
 </form>
 <br>
 <div class="container">
     <div class="field is-grouped & not-yet-container">
         <h2 class="subtitle & not-yet">Pas encore membre ?</h2>
-        <a th:href="@{/registration}"><button class="button & registration">
-            Inscription
-        </button></a>
+        <a th:href="@{/registration}">
+            <button class="button & registration">
+                Inscription
+            </button>
+        </a>
     </div>
 </div>
 <div class="block">
