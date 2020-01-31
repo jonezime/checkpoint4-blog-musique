@@ -42,9 +42,19 @@
                     <div class="media-content">
                         <p class="title is-4" th:text="${band.name}">Nom de l'artiste</p>
                         <p class="subtitle is-6" th:text="${band.genre}">Style musical</p>
-                        <div class="box has-text-centered">
-                            <a th:href="@{/admin/groups/update(bandId=${band.id})}"><p class="button is-warning">
-                                Modifier</p></a>
+                        <div class="field is-grouped">
+                            <p class="control">
+                                <a th:href="@{/admin/groups/update(bandId=${band.id})}">
+                                    <button class="button is-warning">Modifier
+                                    </button>
+                                </a>
+                            </p>
+                            <p class="control">
+                                <a th:href="@{/admin/groups/delete(bandId=${band.id})}">
+                                    <button class="button is-danger">Supprimer
+                                    </button>
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </div>

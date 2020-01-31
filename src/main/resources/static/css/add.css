@@ -19,8 +19,8 @@ h2 {
 }
 
 .button-add-band {
-    display: block;
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 25px;
+    text-align: center;
 }

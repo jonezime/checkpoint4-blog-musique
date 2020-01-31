@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Controller
 public class AdminController {
@@ -104,6 +105,17 @@ public class AdminController {
         band.setName(name);
 
         bandRepository.save(band);
+
+        return "redirect:/admin/groups";
+    }
+
+    @GetMapping("/admin/groups/delete")
+    public String deleteBand(HttpSession session,
+                             @RequestParam Long bandId) {
+
+        Band band = bandRepository.findById(bandId).get();
+
+        bandRepository.delete(band);
 
         return "redirect:/admin/groups";
     }
