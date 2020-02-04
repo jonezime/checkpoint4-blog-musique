@@ -1,4 +1,4 @@
-package com.blogmusique.Blog.Musique;
+package com.blogmusique.oandzim;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

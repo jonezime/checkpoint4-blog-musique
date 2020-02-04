@@ -1,12 +1,10 @@
-package com.blogmusique.Blog.Musique.controller;
+package com.blogmusique.oandzim.controller;
 
-import com.blogmusique.Blog.Musique.entity.User;
-import com.blogmusique.Blog.Musique.repository.BandRepository;
-import com.blogmusique.Blog.Musique.repository.UserRepository;
+import com.blogmusique.oandzim.entity.User;
+import com.blogmusique.oandzim.repository.UserRepository;
 import com.google.common.hash.Hashing;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,6 +1,6 @@
-package com.blogmusique.Blog.Musique.repository;
+package com.blogmusique.oandzim.repository;
 
-import com.blogmusique.Blog.Musique.entity.Band;
+import com.blogmusique.oandzim.entity.Band;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

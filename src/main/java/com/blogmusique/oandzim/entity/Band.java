@@ -1,4 +1,4 @@
-package com.blogmusique.Blog.Musique.entity;
+package com.blogmusique.oandzim.entity;
 
 import lombok.Getter;
 import lombok.Setter;

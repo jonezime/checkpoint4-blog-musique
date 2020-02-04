@@ -1,4 +1,4 @@
-package com.blogmusique.Blog.Musique.entity;
+package com.blogmusique.oandzim.entity;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -6,9 +6,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
